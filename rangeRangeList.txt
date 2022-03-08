@@ -1,0 +1,23 @@
+Google Planilhas Avançado - #25 Classe Range II e RangeList
+
+//Class Range II
+function myRange2()
+{
+  var app=SpreadsheetApp;
+  var spreadsheet=app.getActiveSpreadsheet();
+  var sheet=app.getActiveSheet();
+  var selection=sheet.getSelection().getActiveRange();
+  var values=selection.getValues();
+  var lastRow=sheet.getLastRow()+1;
+
+  //r->linhas   c->colunas
+  for(r=0; r< values.length; r++){
+    for(c=0; c < values[r].length; c++){
+      /*if(r != 2){
+        sheet.getRange(7+r, 2+c).setValue(values[r][c]);
+      }*/
+      //sheet.getRange(lastRow+(r+1), c+1).setValue(values[r][c]);
+      sheet.getRange(r+1,c+1).copyTo(sheet.getRange(lastRow+(r+1), (c+1)));
+    }
+  }
+}

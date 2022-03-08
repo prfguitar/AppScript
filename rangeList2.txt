@@ -1,0 +1,21 @@
+function rangeList()
+{
+  var app=SpreadsheetApp;
+  var spreadsheet=app.getActiveSpreadsheet();
+  var sheet=app.getActiveSheet();
+  var rangeList=sheet.getRangeList(["A1:A8","C1:C8"]);
+
+  var rangeA=rangeList.getRanges()[0].getValues();
+  var rangeC=rangeList.getRanges()[1].getValues();
+
+  for(var r=0; r < rangeA.length; r++){
+    for(var c=0; c < rangeA[r].length; c++){
+      //Logger.log(rangeA[r][c]);
+    }
+  }
+
+   for(var rr=0; rr < rangeC.length; rr++){
+    for(var cc=0; cc < rangeC[rr].length; cc++){
+      Logger.log(rangeC[rr][cc]);
+    }
+  }
